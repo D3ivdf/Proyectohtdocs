@@ -25,9 +25,55 @@
                 data-bs-dismiss="alert" arial-label="Close"></button>
             </div>
             <?php session_unset();}?>
-            
+            <!--**-->
+        <div class="card card-body">
+            <form action="guardar.php" method="POST">
+                <div class="mb-3">
+                    <label for="id" class="form-label">Identificacion:</label>
+                    <input type="number" id="id" name="id" class="form-control" required>
+                </div>
+                <div class="mb-3">
+                    <label for="nombre" class="form-label">Nombre completo:</label>
+                    <input type="text" id="nomre" name="nombre" class="form-control" required>
+                </div>
+                <div class="mb-3">
+                    <label for="date" class="form-label">Fecha de nacimiento:</label>
+                    <input type="date" id="fechaN" name="fechaN" class="form-control" required>
+                </div>
+                <div class="mb-3">
+                    <label for="papa" class="form-label">P.A.P.A</label>
+                    <input type="number" id="papa" name="papa" class="form-control" onchange="verificar()" required >
+                </div>
+                <input type="submit" class="btn btn-success btm-block" name="guardar" value="Guradar" >
+            </form>
+        </div>
+        <!--/m-->
+        </div>
+        <div class="col-md-8">
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>Indetificacion</th>
+                        <th>Nombere completo</th>
+                        <th>Fecha de Nacimiento</th>
+                        <th>P.A.P.A</th>
+                    <tr>
+                </thead>
+                <tbody>
+                    <?php 
+                    $query = "SELECT * FROM estudiantes";
+                    $result = mysqli_query($conn, $query);
+                    while($row = mysqli_fetc_array($result)){?>
+                    <te>
+                        
+                    </tr>
+                    }
+                </tbody>
+            </table>
         </div>
     </div>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
+    <div class="col-md-8">
+    </div>
+    <script src="validar.js"></script>
 </body>
 </html>
