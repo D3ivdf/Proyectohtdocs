@@ -18,4 +18,5 @@ if(isset($_POST['guardar'])){
     }
     header("Location: index.php");
 }
+ $query = "SELECT * FROM estudiante ()";
     ?>
