@@ -1,6 +1,6 @@
 <?php
 include("db.php");
-if(isset($_POST['guardar'])){
+if(isset($_POST['save'])){
     $id =$_POST['id'];
     $nombre =$_POST['nombre'];
     $fechaN =$_POST['fechaN'];
