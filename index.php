@@ -29,24 +29,24 @@
             <?php session_unset();}?>
             <!--**-->
             <div class="card card-body">
-                <form action="edit.php" action="guardar.php" method="POST">
+                <form action="guardar.php" method="POST">
                     <div class="mb-3">
                         <label for="id" class="form-label">Identificacion:</label>
-                        <input type="number" id="id" name="id" class="form-control" required value="<?php $id?>">
+                        <input type="number" id="id" name="id" class="form-control" required >
                     </div>
                     <div class="mb-3">
                         <label for="nombre" class="form-label">Nombre completo:</label>
-                        <input type="text" id="nomre" name="nombre" class="form-control" required value="<?php $nombre?>">
+                        <input type="text" id="nomre" name="nombre" class="form-control" required >
                     </div>
                     <div class="mb-3">
                         <label for="date" class="form-label">Fecha de nacimiento:</label>
-                        <input type="date" id="fechaN" name="fechaN" class="form-control" required value="<?php $fechaN?>">
+                        <input type="date" id="fechaN" name="fechaN" class="form-control" required >
                     </div>
                     <div class="mb-3">
                         <label for="papa" class="form-label">P.A.P.A</label>
-                        <input type="number" id="papa" name="papa" class="form-control" onchange="verificar()" required value="<?php $papa?>">
+                        <input type="number" id="papa" name="papa" class="form-control" onchange="verificar()" required>
                     </div>
-                    <input type="submit" class="btn btn-success btm-block" name="guardar" value="Guradar" >
+                    <input type="submit" class="btn btn-success btm-block" name="save" value="Guradar" >
                 </form>
             </div>
         <!--/m-->
@@ -59,8 +59,7 @@
                         <th>Nombere completo</th>
                         <th>Fecha de Nacimiento</th>
                         <th>P.A.P.A</th>
-                        <th>DELETE</th>
-                        <th>EDIT</th>
+                        <th>opreation</th>
                     <tr>
                 </thead>
                 <tbody>
@@ -73,15 +72,17 @@
                         <td><?php echo "".$row['nombre'] ?></td>
                         <td><?php echo "".$row['FechaNacimiento'] ?></td>
                         <td><?php echo "".$row['PAPA'] ?></td>
+                        <td>
                         <form action="delete.php" method="POST">
-                            <input type="hidden" name="id" value="<?php echo $row['id']?>">
-                            <td><input type="submit" name="delete" class="btn btn-danger" value="DELETE">
-                        </td>
+                                 <input type="hidden" name="id" value="<?php echo $row['id']?>">
+                                 <button class="btn btn-danger"  type="hidden" name="delete" >
+                                    <span class="bi bi-trash-fill"></span>
+                                 </button>
                         </form>
-                        <form  action="edit.php" method="POST">
-                            <td><input type="button" name="edit" class="btn btn-primary" value="EDIT">
+                        <a href="edit.php?id=<?php echo $row['id']?>" class="btn btn-primary">
+                                <i class="bi bi-pencil-fill"></i>
+                            </a>
                         </td>
-                        </form>
                     </tr>
                     <?php 
                 }?>
